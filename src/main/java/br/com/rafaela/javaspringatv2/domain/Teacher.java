@@ -23,8 +23,8 @@ public class Teacher {
     @Id
 	@JsonProperty("id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-	
 	private long id;
+	
 	@JsonProperty("name")
     @Column(name = "name", nullable = false)
 	private String name;
