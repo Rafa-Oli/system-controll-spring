@@ -9,5 +9,5 @@
 
 ## *Route register teacher:*
 
-- [x] /classes/idClass/register-student/idTeacher
+- [x] /classes/idClass/register-teacher/idTeacher
 
