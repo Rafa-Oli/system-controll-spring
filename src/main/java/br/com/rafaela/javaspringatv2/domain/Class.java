@@ -2,6 +2,9 @@ package br.com.rafaela.javaspringatv2.domain;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,12 +20,12 @@ import lombok.Setter;
 @Entity
 @Table(name = "classes")
 public class Class {
-
+    
     @Id
     @JsonProperty("id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
+    
     @JsonProperty("name")
     @Column(name = "name")
     private String name;
@@ -31,13 +34,12 @@ public class Class {
     @Column(name = "classroom")
     private String classroom;
     
-    // @JsonProperty("idTeacher")
     @Column(name = "idTeacher")
     private long idTeacher;
-
-    @Column(name = "idsStudents")
-    private long idsStudents;
     
+    @Column(name = "idsStudents")
+    ArrayList<Long> idsStudents = new ArrayList<Long>();
+
     public long getIdTeacher() {
         return idTeacher;
     }
@@ -45,12 +47,10 @@ public class Class {
     public void setIdTeacher(Long idTeacher) {
         this.idTeacher = idTeacher;
     }
-    
-    public long getIdsStudents() {
-        return idsStudents;
+
+    public void setIdsStudents(Long id) {
+        this.idsStudents.add(id);
     }
-    
-    public void setIdsStudents(long idsStudents) { this.idsStudents = idsStudents; }
 
     public Class() {}
 

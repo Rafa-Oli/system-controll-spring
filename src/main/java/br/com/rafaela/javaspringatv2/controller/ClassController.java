@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.Optional;
 
 import br.com.rafaela.javaspringatv2.domain.Class;
-import br.com.rafaela.javaspringatv2.domain.Teacher;
 import br.com.rafaela.javaspringatv2.repository.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,11 +39,10 @@ public class ClassController {
     }
     
     @PatchMapping("/{id}/register-student/{idStudent}")
-    public Class registerStudent(@PathVariable("id") Long id,  @RequestBody long idStudent) {
+    public Class registerStudent(@PathVariable("id") Long id, @PathVariable("idStudent") Long idStudent) {
         Class classEntity = classRepository.getById(id);
         classEntity.setIdsStudents(idStudent);
 
-        
         return classRepository.save(classEntity);
     }
  
