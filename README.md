@@ -38,7 +38,7 @@ DELETE /classes/{id}
 
 - [x] PATCH /classes/idClass/register-teacher/idTeacher
 
-### *Model example class:*
+### *Example of a class registered in the bank h2:*
 ```
 [
   {
