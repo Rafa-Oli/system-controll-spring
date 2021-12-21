@@ -10,7 +10,6 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -32,10 +31,27 @@ public class Class {
     @Column(name = "classroom")
     private String classroom;
     
-    @JsonProperty("idTeacher")
+    // @JsonProperty("idTeacher")
     @Column(name = "idTeacher")
     private long idTeacher;
+
+    @Column(name = "idsStudents")
+    private long idsStudents;
     
+    public long getIdTeacher() {
+        return idTeacher;
+    }
+    
+    public void setIdTeacher(Long idTeacher) {
+        this.idTeacher = idTeacher;
+    }
+    
+    public long getIdsStudents() {
+        return idsStudents;
+    }
+    
+    public void setIdsStudents(long idsStudents) { this.idsStudents = idsStudents; }
+
     public Class() {}
 
     public Class(String name, String classroom) {

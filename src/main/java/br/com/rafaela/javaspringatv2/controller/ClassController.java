@@ -33,11 +33,16 @@ public class ClassController {
 	
     @PatchMapping("/{id}/register-teacher/{idTeacher}")
     public Class registerTeacher(@PathVariable("id") Long id, @PathVariable("idTeacher") Long idTeacher) {
-        System.out.print("olaa" + id);
-        
         Class classEntity = classRepository.getById(id);
-        System.out.print("olaa" + classEntity);
         classEntity.setIdTeacher(idTeacher);
+
+        return classRepository.save(classEntity);
+    }
+    
+    @PatchMapping("/{id}/register-student/{idStudent}")
+    public Class registerStudent(@PathVariable("id") Long id,  @RequestBody long idStudent) {
+        Class classEntity = classRepository.getById(id);
+        classEntity.setIdsStudents(idStudent);
 
         
         return classRepository.save(classEntity);
